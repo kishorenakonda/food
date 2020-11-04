@@ -1,10 +1,11 @@
-import { createStackNavigator } from 'react-navigation-stack';
-import { createAppContainer } from 'react-navigation'; // createAppContainer is imported from 'react-navigation' not from 'react-navigation-stack'
-import searchScreen from './src/screens/SearchScreen';
-import WelcomeScreen from './src/screens/WelcomeScreen';
-import { SignupScreen } from './src/screens/SignupScreen';
-import { RegisterScreen } from './src/screens/RegisterScreen';
-import { OTPScreen } from './src/screens/OTPScreen';
+import { createStackNavigator } from "react-navigation-stack";
+import { createAppContainer } from "react-navigation"; // createAppContainer is imported from 'react-navigation' not from 'react-navigation-stack'
+import searchScreen from "./src/screens/SearchScreen";
+import WelcomeScreen from "./src/screens/WelcomeScreen";
+import { SignupScreen } from "./src/screens/SignupScreen";
+import { RegisterScreen } from "./src/screens/RegisterScreen";
+import { OTPScreen } from "./src/screens/OTPScreen";
+import ResultsShowScreen from "./src/screens/ResultsShowScreen";
 
 const navigator = createStackNavigator(
   {
@@ -12,13 +13,14 @@ const navigator = createStackNavigator(
     welcome: WelcomeScreen,
     signup: SignupScreen,
     register: RegisterScreen,
-    otp: OTPScreen
+    otp: OTPScreen,
+    resultsShow: ResultsShowScreen,
   },
   {
-    initialRouteName: 'welcome',
+    initialRouteName: "welcome",
     defaultNavigationOptions: {
-      title: 'VOLO'
-    }
+      title: "VOLO",
+    },
   }
 );
 

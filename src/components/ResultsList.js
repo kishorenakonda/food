@@ -1,8 +1,10 @@
 import React from "react";
 import { View, StyleSheet, Text, FlatList } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import ResultsDetail from "./ResultsDetails";
+import { withNavigation } from "react-navigation";
 
-const ResultsList = ({ title, results }) => {
+const ResultsList = ({ title, results, navigation }) => {
   return (
     <View>
       <Text style={styles.title}>
@@ -16,7 +18,15 @@ const ResultsList = ({ title, results }) => {
         data={results}
         keyExtractor={(result) => result.id}
         renderItem={({ item }) => {
-          return <ResultsDetail result={item} />;
+          return (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("resultsShow", { id: item.id });
+              }}
+            >
+              <ResultsDetail result={item} />
+            </TouchableOpacity>
+          );
         }}
       />
     </View>
@@ -31,4 +41,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ResultsList;
+// export default ResultsList;
+// withNavigation is a  special function with which we can navigate directly from stack navigator to the component
+export default withNavigation(ResultsList);
