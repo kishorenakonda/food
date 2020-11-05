@@ -29,7 +29,7 @@ const searchScreen = () => {
       <SearchBar
         term={term}
         onTermChange={(newTerm) => setTerm(newTerm)}
-        onTermSubmit={(searchTerm) => searchAPI(searchTerm)}
+        onTermSubmit={() => searchAPI(term)}
       ></SearchBar>
       {/* <Text> {errorMessage} </Text> */}
       <Text> {term}</Text>
